@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: AI PPT Generator API
+  description: 智能演示文稿生成与预览接口
+  version: 1.0.0
+servers:
+  - url: /
+    description: 当前服务
+paths:
+  /api/health:
+    get:
+      summary: 健康检查
+      tags: [系统]
+      responses:
+        '200':
+          description: 服务正常
+  /api/templates:
+    get:
+      summary: 获取可用模板列表
+      tags: [模板]
+      responses:
+        '200':
+          description: 模板列表
+  /api/auth/register:
+    post:
+      summary: 用户注册
+      tags: [认证]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+                name: { type: string }
+      responses:
+        '200':
+          description: 注册成功，返回 user 与 access_token
+        '400':
+          description: 参数错误或邮箱已注册
+  /api/auth/login:
+    post:
+      summary: 用户登录
+      tags: [认证]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: 登录成功，返回 user 与 access_token
+        '401':
+          description: 邮箱或密码错误
+  /api/generate:
+    post:
+      summary: 生成演示文稿
+      tags: [演示]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [topic]
+              properties:
+                topic: { type: string, description: 演示主题 }
+                template: { type: string, default: modern-elegant }
+                type: { type: string, default: business_presentation }
+                audience: { type: string, default: general_employees }
+                duration: { type: integer, default: 15 }
+                tone: { type: string, default: professional }
+                industry: { type: string }
+                author: { type: string }
+      responses:
+        '200':
+          description: 生成成功，返回 data.url、data.filename 等
+        '400':
+          description: 缺少 topic
+        '500':
+          description: 服务端错误
+  /api/presentations:
+    get:
+      summary: 当前用户演示历史（需登录）
+      tags: [演示]
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: 演示列表
+        '401':
+          description: 未授权
+  /output/{filename}:
+    get:
+      summary: 获取生成的 HTML 文件
+      tags: [输出]
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: HTML 文件
+        '404':
+          description: 文件不存在
+  /api/export/pptx:
+    post:
+      summary: 导出为 PPTX 文件
+      tags: [输出]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [topic]
+              properties:
+                topic: { type: string }
+                template: { type: string }
+                type: { type: string }
+                audience: { type: string }
+                duration: { type: integer }
+                tone: { type: string }
+                industry: { type: string }
+                author: { type: string }
+      responses:
+        '200':
+          description: 返回 .pptx 文件下载
+          content:
+            application/vnd.openxmlformats-officedocument.presentationml.presentation:
+              schema: { type: string, format: binary }
+        '400':
+          description: 缺少 topic
+        '503':
+          description: 未安装 python-pptx
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{TITLE}}">
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --text-dark: #111111;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --bg-white: #ffffff;
+      --bg-offwhite: #fafafa;
+      --accent: #333333;
+    }
+    
+    .reveal-viewport {
+      background: var(--bg-white);
+    }
+    
+    .reveal {
+      font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .reveal .slides section {
+      background: transparent;
+      box-shadow: none;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: var(--text-dark);
+      font-weight: 300;
+      text-transform: none;
+      letter-spacing: -0.03em;
+    }
+    
+    .reveal h1 {
+      font-size: 3.5em;
+      line-height: 1.1;
+      margin-bottom: 0.3em;
+    }
+    
+    .reveal h2 {
+      font-size: 2.2em;
+      margin-bottom: 0.8em;
+    }
+    
+    .reveal h3 {
+      font-size: 1.4em;
+      font-weight: 500;
+    }
+    
+    .reveal p, .reveal li {
+      color: var(--text-gray);
+      line-height: 1.8;
+      font-size: 1.1em;
+      font-weight: 400;
+    }
+    
+    .reveal ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .reveal ul li {
+      position: relative;
+      padding-left: 2em;
+      margin-bottom: 1em;
+    }
+    
+    .reveal ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-light);
+      font-size: 1.5em;
+      line-height: 1em;
+    }
+    
+    .minimal-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--text-dark);
+      margin: 40px auto;
+    }
+    
+    .subtitle {
+      font-size: 1.4em !important;
+      color: var(--text-gray) !important;
+      font-weight: 300;
+      margin-top: 0.5em !important;
+    }
+    
+    .meta-info {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 0.95em;
+      color: var(--text-light);
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .numbered-list {
+      counter-reset: item;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .numbered-list li {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 30px;
+    }
+    
+    .numbered-list li::before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--text-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1em;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+    
+    .point-box {
+      padding: 30px 40px;
+      background: var(--bg-offwhite);
+      border-left: 3px solid var(--text-dark);
+      margin: 20px 0;
+    }
+    
+    .point-box h4 {
+      margin: 0 0 10px 0 !important;
+      font-size: 1.2em !important;
+      font-weight: 500;
+    }
+    
+    .point-box p {
+      margin: 0 !important;
+      font-size: 1em !important;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+    }
+    
+    .column-header {
+      font-size: 1.2em !important;
+      font-weight: 500;
+      color: var(--text-dark) !important;
+      margin-bottom: 20px !important;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--bg-offwhite);
+    }
+    
+    .highlight-text {
+      font-size: 1.3em !important;
+      color: var(--text-dark) !important;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .quote-text {
+      font-size: 1.8em !important;
+      color: var(--text-dark) !important;
+      font-weight: 300;
+      line-height: 1.5;
+      text-align: center;
+      margin: 40px 0 !important;
+    }
+    
+    .quote-author {
+      font-size: 1em !important;
+      color: var(--text-gray) !important;
+      text-align: center;
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 50px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 3em !important;
+      font-weight: 200;
+      color: var(--text-dark) !important;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 0.95em !important;
+      color: var(--text-gray) !important;
+      margin-top: 10px !important;
+    }
+    
+    .content-section {
+      margin-bottom: 50px;
+    }
+    
+    .content-section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .content-section h3 {
+      font-size: 1.3em !important;
+      margin-bottom: 20px !important;
+      font-weight: 500;
+    }
+    
+    .content-section p {
+      font-size: 1.05em !important;
+    }
+    
+    .simple-list li {
+      margin-bottom: 15px !important;
+    }
+    
+    .thank-you-slide {
+      text-align: center !important;
+    }
+    
+    .thank-you-slide h1 {
+      font-size: 4em !important;
+    }
+    
+    .contact-minimal {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    
+    .contact-link {
+      color: var(--text-gray) !important;
+      font-size: 0.95em !important;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Slide 1: Title -->
+      <section>
+        <h1>{{TITLE}}</h1>
+        <div class="minimal-divider"></div>
+        <p class="subtitle">{{SUBTITLE}}</p>
+        <div class="meta-info">
+          {{META_INFO}}
+        </div>
+      </section>
+
+      <!-- Slide 2: Agenda -->
+      <section>
+        <h2>{{AGENDA_TITLE}}</h2>
+        <ol class="numbered-list">
+          {{AGENDA_ITEMS}}
+        </ol>
+      </section>
+
+      <!-- Slide 3-X: Content Sections -->
+      {{CONTENT_SLIDES}}
+
+      <!-- Final Slide: Thank You -->
+      <section class="thank-you-slide">
+        <h1>{{THANK_YOU_TITLE}}</h1>
+        <p class="subtitle">{{THANK_YOU_SUBTITLE}}</p>
+        <div class="contact-minimal">
+          {{CONTACT_INFO}}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.1,
+      minScale: 0.2,
+      maxScale: 2.0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      history: true,
+      center: true,
+      transition: 'fade',
+      transitionSpeed: 'slow',
+      showNotes: false,
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+</html>

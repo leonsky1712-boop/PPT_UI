@@ -1,0 +1,102 @@
+# AI PPT Generator - Git 忽略规则
+
+# ==================== OS 文件 ====================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# ==================== Node.js ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================== IDE ====================
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-*
+
+# ==================== 日志 ====================
+logs/
+*.log
+*.log.*
+
+# ==================== 测试 ====================
+.coverage
+.pytest_cache/
+htmlcov/
+.coverage.xml
+
+# ==================== 数据库 ====================
+*.db
+*.sqlite
+*.sqlite3
+.db-journal
+
+# ==================== 上传和输出 ====================
+uploads/
+output/
+*.pptx
+*.ppt
+
+# ==================== 敏感信息 ====================
+.env
+.env.local
+.env.production.local
+.env.development.local
+.env.test.local
+*.pem
+*.key
+*.crt
+
+# ==================== Docker ====================
+.docker/
+docker-compose.override.yml
+
+# ==================== 杂项 ====================
+*.bak
+*.backup
+*.orig
+*.rej
+*.patch
+.temp/
+tmp/
+temp/
+
+# ==================== 项目特定 ====================
+.claude/settings.local.json
+*.local.yml
+.local/
+secrets/
+credentials/
+
+# ==================== macOS 特定 ====================
+.DS_Store
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+AppleDouble
+.LSOverride

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI PPT Generator - 演示文稿生成</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .header h1 {
+      font-size: 3em;
+      color: white;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2em;
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    
+    .section { margin-bottom: 30px; }
+    
+    .section h3 {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+    }
+    
+    .input-group label {
+      display: block;
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 15px 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+    
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102,126,234,0.1);
+    }
+    
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .template-option {
+      padding: 20px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .template-option:hover {
+      border-color: #667eea;
+    }
+    
+    .template-option.selected {
+      border-color: #667eea;
+      background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+    }
+    
+    .template-preview {
+      height: 60px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    
+    .template-name {
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .template-desc {
+      font-size: 0.85em;
+      color: #888;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+    }
+    
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f0f9ff;
+      border-radius: 12px;
+      display: none;
+    }
+    
+    .result.show { display: block; }
+    
+    .result a {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .loading.show { display: block; }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(102,126,234,0.3);
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .info-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    
+    .info-box h4 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .info-box p {
+      color: #666;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    
+    .command-box {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.9em;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+    
+    .command-box code {
+      color: #f093fb;
+    }
+    
+    .row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎯 AI PPT Generator</h1>
+      <p>智能演示文稿生成平台</p>
+    </div>
+    
+    <div class="card">
+      <!-- 演示主题 -->
+      <div class="section">
+        <h3>📝 演示主题</h3>
+        <div class="input-group">
+          <label>请输入演示主题</label>
+          <input type="text" id="topic" placeholder="例如：2024年Q4产品销售回顾">
+        </div>
+        <div class="row">
+          <div class="input-group">
+            <label>行业/领域</label>
+            <input type="text" id="industry" placeholder="例如：科技、教育">
+          </div>
+          <div class="input-group">
+            <label>演讲者</label>
+            <input type="text" id="author" placeholder="您的名字">
+          </div>
+        </div>
+      </div>
+      
+      <!-- 演示类型 -->
+      <div class="section">
+        <h3>📊 演示类型</h3>
+        <div class="template-grid">
+          <div class="template-option selected" data-type="business_presentation" onclick="selectType(this)">
+            <div class="template-name">📊 商业汇报</div>
+            <div class="template-desc">季度总结、进度汇报</div>
+          </div>
+          <div class="template-option" data-type="investor_pitch" onclick="selectType(this)">
+            <div class="template-name">🎯 投资路演</div>
+            <div class="template-desc">创业融资、VC演示</div>
+          </div>
+          <div class="template-option" data-type="product_launch" onclick="selectType(this)">
+            <div class="template-name">🚀 产品发布</div>
+            <div class="template-desc">新品发布、功能介绍</div>
+          </div>
+          <div class="template-option" data-type="training_workshop" onclick="selectType(this)">
+            <div class="template-name">📚 培训研讨</div>
+            <div class="template-desc">企业培训、工作坊</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 模板选择 -->
+      <div class="section">
+        <h3>🎨 模板选择</h3>
+        <div class="template-grid">
+          <div class="template-option selected" data-template="modern-elegant" onclick="selectTemplate(this)">
+            <div class="template-preview" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+            <div class="template-name">现代优雅</div>
+            <div class="template-desc">渐变背景，适合产品发布</div>
+          </div>
+          <div class="template-option" data-template="corporate-blue" onclick="selectTemplate(this)">
+            <div class="template-preview" style="background: linear-gradient(180deg, #1a365d, #2b6cb0);"></div>
+            <div class="template-name">企业蓝调</div>
+            <div class="template-desc">专业商务风格</div>
+          </div>
+          <div class="template-option" data-template="minimal-clean" onclick="selectTemplate(this)">
+            <div class="template-preview" style="background: #ffffff; border: 1px solid #e5e7eb;"></div>
+            <div class="template-name">极简纯净</div>
+            <div class="template-desc">极简主义设计</div>
+          </div>
+          <div class="template-option" data-template="creative-bold" onclick="selectTemplate(this)">
+            <div class="template-preview" style="background: linear-gradient(135deg, #0a0a0f, #1a1a2e);"></div>
+            <div class="template-name">创意大胆</div>
+            <div class="template-desc">赛博朋克风格</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 生成按钮 -->
+      <button class="btn" id="generateBtn" onclick="generate()">
+        🚀 生成演示文稿
+      </button>
+      
+      <!-- 加载动画 -->
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>AI 正在生成演示文稿，请稍候...</p>
+      </div>
+      
+      <!-- 结果展示 -->
+      <div class="result" id="result">
+        <h4 style="color: #10b981; margin-bottom: 15px;">✅ 演示文稿生成成功!</h4>
+        <p style="margin-bottom: 15px; color: #666;">您的演示文稿已准备就绪。</p>
+        <a href="#" id="downloadLink" target="_blank">📥 打开演示文稿</a>
+      </div>
+      
+      <!-- 命令行方式 -->
+      <div class="info-box">
+        <h4>💻 命令行方式</h4>
+        <p>如果网页生成失败，可以使用命令行生成：</p>
+        <div class="command-box">
+          cd .claude/skills/ui-ux-pro-max/scripts<br>
+          python3 search.py "<code id="cmdTopic">你的主题</code>" --presentation \<br>
+          --type <code id="cmdType">business_presentation</code> \<br>
+          --output demo.html --presentation-format reveal_js
+        </div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px; color: white; opacity: 0.8;">
+      <p>Powered by AI | 快速生成专业演示文稿</p>
+    </div>
+  </div>
+  
+  <script>
+    let selectedType = 'business_presentation';
+    let selectedTemplate = 'modern-elegant';
+    
+    function selectType(el) {
+      document.querySelectorAll('[data-type]').forEach(d => d.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedType = el.dataset.type;
+      updateCommand();
+    }
+    
+    function selectTemplate(el) {
+      document.querySelectorAll('[data-template]').forEach(d => d.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedTemplate = el.dataset.template;
+    }
+    
+    function updateCommand() {
+      const topic = document.getElementById('topic').value || '你的主题';
+      document.getElementById('cmdTopic').textContent = topic;
+      document.getElementById('cmdType').textContent = selectedType;
+    }
+    
+    document.getElementById('topic').addEventListener('input', updateCommand);
+    
+    async function generate() {
+      const topic = document.getElementById('topic').value.trim();
+      if (!topic) {
+        alert('请输入演示主题');
+        return;
+      }
+      
+      const btn = document.getElementById('generateBtn');
+      const loading = document.getElementById('loading');
+      const result = document.getElementById('result');
+      
+      btn.disabled = true;
+      btn.textContent = '生成中...';
+      loading.classList.add('show');
+      result.classList.remove('show');
+      
+      try {
+        // 调用 Python 脚本生成
+        const { spawn } = require('child_process');
+        
+        const python = spawn('python3', [
+          './.claude/skills/ui-ux-pro-max/scripts/search.py',
+          topic,
+          '--presentation',
+          '--type', selectedType,
+          '--output', './output/presentation_' + Date.now() + '.html',
+          '--presentation-format', 'reveal_js'
+        ]);
+        
+        let stdout = '';
+        let stderr = '';
+        
+        python.stdout.on('data', (data) => {
+          stdout += data.toString();
+        });
+        
+        python.stderr.on('data', (data) => {
+          stderr += data.toString();
+        });
+        
+        python.on('close', (code) => {
+          btn.disabled = false;
+          btn.textContent = '🚀 生成演示文稿';
+          loading.classList.remove('show');
+          
+          // 查找生成的文件
+          const fs = require('fs');
+          const outputDir = './output';
+          
+          if (fs.existsSync(outputDir)) {
+            const files = fs.readdirSync(outputDir)
+              .filter(f => f.startsWith('presentation_') && f.endsWith('.html'))
+              .sort()
+              .reverse();
+            
+            if (files.length > 0) {
+              const filePath = './output/' + files[0];
+              result.classList.add('show');
+              document.getElementById('downloadLink').href = filePath;
+            } else {
+              alert('生成失败，请使用命令行方式');
+            }
+          } else {
+            alert('生成失败，请使用命令行方式');
+          }
+        });
+      } catch (e) {
+        btn.disabled = false;
+        btn.textContent = '🚀 生成演示文稿';
+        loading.classList.remove('show');
+        alert('生成失败，请使用命令行方式');
+      }
+    }
+  </script>
+</body>
+</html>

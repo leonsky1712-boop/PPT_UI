@@ -1,0 +1,80 @@
+Note_ID,Slide_Type,Context_Scenario,Note_Template,Speaking_Tips,Q&A_Preparation,Key_Messages,Timing_Guidance,Body_Language,Engagement_Cues,Common_Mistakes,Recovery_Strategies,Speaker_Duration,Audience_Interaction
+1,Title Slide,Opening the presentation,"Welcome everyone. Today we'll explore [TOPIC]. My name is [NAME] from [TEAM/DEPARTMENT]. We'll cover [AGENDA_ITEMS] today and finish with Q&A. Feel free to提问 at any time.",Start strong with energy. Make eye contact. Brief smile. Don't read the title from the slide.,"Prepare for: Why this topic? What's the main takeaway? How does this relate to [CURRENT_PROJECT/GOAL]?",- The main topic and its importance
+- Your credibility on this topic
+- What attendees will learn
+- Time commitment required,Keep under 30 seconds. Purpose is orientation, not information delivery.,Stand confidently. Shoulders back. Hands visible. Movement is optional but should be purposeful.,"If audience seems disengaged: Ask a quick poll question
+If technical issues: Have backup plan ready",Reading every word. Apologizing for content. Over-explaining the agenda.,Simply move forward. No need to address issues.,15-30 seconds,None required
+2,Agenda Slide,Setting expectations,"Let's review our agenda. We'll start with [TOPIC_1], then move to [TOPIC_2], and finish with [TOPIC_3]. Please hold detailed questions until the end, but feel free to ask quick clarifying questions.",Don't read each item. Highlight key topics. Mention timing for each section if helpful.,"Prepare for: Will we cover [SPECIFIC_TOPIC]? Is [PERSON] available for questions? What's the time allocation?",- High-level overview only
+- Time per major section
+- Priority areas based on audience
+- Q&A timing,Keep under 45 seconds. Purpose is navigation, not detail.,Point to agenda items. Reference upcoming sections. Use hand gestures for timing.,"If time is short: Offer to skip sections
+If audience restless: Proceed quickly",Reading every item. Apologizing for length. Changing agenda mid-stream.,Simply acknowledge and proceed. "We'll cover that in [SECTION]. Let's continue.",20-45 seconds,None required (setup only)
+3,Content Slide (Data),Presenting metrics or KPIs,"As you can see, [KEY_FINDING]. We measured [METRIC] and found it [CHANGED/IMPROVED/CHALLENGING]. This represents [SIGNIFICANCE] compared to our target.",Let data tell the story. Don't interpret every number. Highlight outliers and trends.,"Prepare for: How was this measured? What's the data source? Why this time period?",- The single most important data point
+- Why this matters to the audience
+- Supporting context for interpretation
+- Action implied by data,Label axes. Point to key data. Use laser pointer or highlight. Don't rush.,Stand to the side. Point with purpose. Pause after revealing key data.,"If audience questions data accuracy: Note data source
+If numbers are confusing: Summarize the trend",Reading slide verbatim. Apologizing for data complexity. Ignoring surprising numbers.,"Simply state: 'Let me highlight the key insight here...' and refocus.",60-120 seconds,Depends on complexity
+4,Content Slide (Concept),Explaining a concept or theory,"[CONCEPT] means [SIMPLE_DEFINITION]. In practical terms, this means [PRACTICAL_IMPLICATION]. For our team, this translates to [APPLICATION_TO_WORK].",Use analogies from everyday life. Connect to what audience already knows. Build progressively.,"Prepare for: Can you give an example? How does this relate to [EXISTING_TOOL/PROCESS]?",- Core definition in one sentence
+- Why this matters now
+- One concrete example
+- How to apply immediately,Use progressive disclosure. Build from simple to complex.,"Use hand gestures to visualize. 
+Move closer to audience for emphasis.","If concept is too abstract: Offer concrete example
+If audience familiar: Acknowledge and accelerate",Over-explaining. Jargon without explanation. Skipping examples.,Simply ask: "Let me illustrate with an example..." or "Does this connect with what you're experiencing?",90-150 seconds,Quick check-ins ("Does this make sense?")
+5,Content Slide (Process),Showing workflow or procedure,"Here's our [PROCESS_NAME]. We start at [STEP_1], then proceed through [STEP_2] and [STEP_3], ending at [STEP_4]. The key decision points are [DECISION_POINTS].",Walk through step-by-step. Pause at decision points. Emphasize handoffs.,"Prepare for: What happens at [STEP]? Who owns this step? How long does this take?",- Each major step (brief)
+- Decision points and criteria
+- Handoffs between steps
+- Common pitfalls to avoid,Number steps clearly. Use animation to show flow.,Walk through visual path. Use fingers to count. Gestures for branching.,"If process is confusing: Walk through a concrete example
+If outdated: Acknowledge and note update planned",Skipping steps. Assuming knowledge. Ignoring common questions.,"Simply: 'Let me walk through a specific example...' or 'The key decision point here is...'",120-180 seconds,Process walkthrough check ("Does this flow make sense?")
+6,Content Slide (Comparison),Comparing options or alternatives,"We evaluated [OPTION_A] and [OPTION_B]. [OPTION_A] excels in [ADVANTAGE] but has [LIMITATION]. [OPTION_B] offers [ADVANTAGE] but requires [REQUIREMENT]. Our recommendation is [RECOMMENDATION].",Present balanced view first. Build to recommendation. Don't bias early.,"Prepare for: Why not [OPTION_C]? What's the cost difference? Who made this decision?",- The two main options compared
+- Key criteria for comparison
+- Recommendation and rationale
+- Next steps if approved,Use two-column layout. Highlight differences clearly.,"Use hands to separate options. 
+Lean toward audience when making recommendation.","If audience disagrees: Acknowledge valid concerns
+If data is incomplete: Note what we're validating",Skipping alternatives. Over-emphasizing one option. Making it personal.,"Simply: 'I appreciate that perspective. Here's how we weighed the options...'",120-180 seconds,Quick vote or preference check ("Which resonates more?")
+7,Feature Slide (Product),Introducing a new feature,"[FEATURE_NAME] helps you [CORE_BENEFIT]. You can [KEY_CAPABILITY_1], [KEY_CAPABILITY_2], and [KEY_CAPABILITY_3]. This saves approximately [TIME_SAVED/COST_SAVED] per [TIME_PERIOD].",Focus on benefits, not features. Quantify value where possible.,"Prepare for: When can we use this? Is this available to [USER_GROUP]? How does this work with [EXISTING_FEATURE]?",- Core benefit in one sentence
+- Top 3 capabilities
+- Quantified value proposition
+- Availability and access,Show, don't just tell. Demo if possible.,"Show enthusiasm but don't oversell. 
+Physical demo if available.","If feature seems minor: Connect to bigger picture
+If users ask for changes: Capture feedback",Feature dumping (too many). Skipping benefits. Overpromising.,"Simply: 'The real power comes when you combine it with...' or 'What makes this transformative is...'",90-150 seconds,Live demo or mockup review
+8,Testimonial Slide,Customer or stakeholder quote,"[CUSTOMER_NAME] from [COMPANY] said: '[EXACT_QUOTE]'. They achieved [SPECIFIC_RESULT] after implementing our solution.",Let the quote stand alone. Add brief context. Celebrate success.,"Prepare for: Can we use this externally? What was their challenge? Would they recommend?",- Customer identity and credibility
+- Key message from quote
+- Specific result achieved
+- Why this matters to this audience,Display quote prominently. Pause after reading.,Maintain warm demeanor. Direct attention to quote.,"If quote seems generic: Add specific metrics
+If outdated: Pair with recent update",Reading slowly. Over-interpreting. Dwelling on details.,"Simply: 'Their experience is typical of what we see. The key takeaway is...'",30-60 seconds,None (let quote speak)
+9,Pricing Slide,Commercial or pricing discussion,"Our [EDITION_NAME] edition is [PRICE] per [PERIOD]. This includes [TOP_3_FEATURES]. For [CUSTOMER_TYPE], this represents [VALUE_PROPOSITION] compared to [ALTERNATIVE/COMPETITOR].",Lead with value, not price. Position against alternatives.,"Prepare for: What's the discount? Is this negotiable? What's included in support?",- Price point and periodicity
+- Key inclusions
+- Value vs. alternatives
+- Next steps for purchase,Present cleanly. Avoid fidgeting.,Stand confidently. Direct eye contact.,"If price concerns: Refocus on value
+If comparison unfair: Clarify the difference",Reading every line item. Defensive posture. Apologizing for price.,"Simply: 'Let me put this in context. When you consider [VALUE_DRIVER], the ROI is clear...'",60-120 seconds,Check understanding ("Does this address your budget requirements?")
+10,Thank You Slide,Closing the presentation,"Thank you for your time and attention. To recap: [KEY_TAKEAWAYS]. Next steps are: [NEXT_STEPS]. My contact is [EMAIL/PHONE]. Feel free to reach out with questions.",Summarize briefly. Clear next steps. Strong closing statement.,"Prepare for: What if we can't move forward? Can you send these slides? When is the decision due?",- 1-2 key takeaways only
+- Clear next steps and owners
+- Contact information
+- Follow-up timing,Thank sincerely. Invite questions. End on forward-looking note.,Confident posture. Brief eye contact sweep. Warm smile.,"If questions remain: Invite continued dialogue
+If no questions: Summarize anyway",Long recap. Multiple calls-to-action. Weak closing.,"Simply: 'Thank you again. I'm confident [OUTCOME] will [RESULT]. You can reach me at [CONTACT].'",20-30 seconds,Final Q&A invitation
+11,Section Divider,Transitioning between topics,"Now let's move to our next section: [SECTION_NAME]. In this section, we'll cover [TOP_3_ITEMS]. This builds on our previous discussion of [PREVIOUS_SECTION] by [CONNECTION].",Bridge clearly. Set expectations. Signal importance.,"Prepare for: Why this section now? How does it connect? What's the key takeaway?",- Section topic and scope
+- How it connects to previous
+- What attendees will learn
+- Timing for this section,Move with purpose. Change energy level if needed.,Transition energy. Gesture toward new direction.,"If abrupt transition: Add bridging statement
+If section seems out of order: Acknowledge flow",Long introductions. Apologizing for transition. Over-explaining.,"Simply: 'Building on [PREVIOUS], let's explore [NEW]. The key connection is...'",10-20 seconds,None (transition only)
+12,Q&A Slide,Dedicated question session,"We'll now open the floor for questions. Please hold [TYPE] questions for the end. [SPECIFIC_PERSON] will take notes. We'll have [TIME] minutes for Q&A.",Encourage questions. Manage time fairly. Stay calm.,"Prepare for: Difficult questions? Controversial topics? Questions about [SPECIFIC_PROJECT]?",- Invite questions broadly
+- Time allocation
+- Note-taking process
+- Offline follow-up process,Be welcoming. Make eye contact with questioners.,Open body language. Nod thoughtfully.,"If no questions: Prompt with common questions
+If hostile question: Stay calm and address",Rushing Q&A. Avoiding difficult questions. One person dominating.,"Simply: 'Great question. Let me address that by...' or 'That's actually two questions. Let's start with...'",Varies,Active facilitation required
+13,Quote Slide,Motivational or key message,"As [AUTHOR/FAMOUS_PERSON] said: '[QUOTE]'. This resonates because [INTERPRETATION]. In our context, this means [APPLICATION].",Let quote breathe. Pause before and after. Interpret briefly.,"Prepare for: Who is this person? Why this quote now? Is it original?",- Author and attribution
+- Why this quote matters
+- One-sentence interpretation
+- Application to current context,Present cleanly. Large font.,Maintain thoughtful expression.,"If quote seems cliché: Acknowledge and explain relevance
+If audience doesn't know author: Brief context",Reading verbatim. Long explanation. Forgetting attribution.,"Simply: 'This captures the essence. The power is in how we apply it...'",15-30 seconds,Reflection check ("What does this mean for you?")
+14,Case Study Slide,Problem-solution-result,"[CUSTOMER] faced [CHALLENGE]. We implemented [SOLUTION]. The result was [SPECIFIC_RESULT] in [METRIC]. Key success factors included [FACTOR_1] and [FACTOR_2].",Story arc matters. Build tension, then reveal resolution.,"Prepare for: Would they recommend us? Can we share this externally? What was the cost?",- Customer and challenge
+- Solution implemented
+- Quantified results
+- Key success factors,Build narrative. Vary pacing.,Build through story. Slow down for results.,"If results seem modest: Place in context
+If customer is small: Focus on scalability",Long setup. Skipping results. Over-claiming.,"Simply: 'What made this work was... The outcome exceeded expectations by...'",60-120 seconds,Connection check ("Does this relate to your situation?")
+15,Interactive Slide,Engagement activity,"Let's take [TIME] minutes for [ACTIVITY_NAME]. In pairs/small groups, discuss [QUESTION]. We'll share key themes in [TIME].",Give clear instructions. Manage time strictly. Facilitate debrief.,"Prepare for: What if no participation? How to handle dominant voices? What if time runs out?",- Activity instructions
+- Time allocation
+- Sharing mechanism
+- What to listen for,Be energetic. Set clear expectations.,Move around. Engage with groups.,"If no participation: Start with yourself
+If too long: Condense or cut","If disruption: Acknowledge and redirect
+If time overrun: Skip debrief or shorten",Skipping activity. Unclear instructions. Poor time management.,"Simply: 'Let's hear from 2-3 groups. What stood out?'",Varies,Full participation required
